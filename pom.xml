@@ -18,6 +18,7 @@
     <modules>
         <module>commons</module>
         <module>microservicio-command</module>
+        <module>microservicio-query</module>
     </modules>
     <dependencies>
         <dependency>
