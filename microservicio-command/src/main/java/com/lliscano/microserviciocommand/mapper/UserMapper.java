@@ -1,7 +1,7 @@
 package com.lliscano.microserviciocommand.mapper;
 
 
-import com.lliscano.microserviciocommand.dto.UserDTO;
+import com.lliscano.commons.dto.UserDTO;
 import com.lliscano.microserviciocommand.entity.Users;
 import org.mapstruct.Mapper;
 

@@ -1,7 +1,8 @@
 package com.lliscano.microservicioquery.controller;
 
+
 import com.lliscano.commons.dto.ResponseDTO;
-import com.lliscano.microservicioquery.dto.UserDTO;
+import com.lliscano.commons.dto.UserDTO;
 import com.lliscano.microservicioquery.service.UsersService;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

@@ -2,7 +2,7 @@ package com.lliscano.microserviciocommand.controller;
 
 
 import com.lliscano.commons.dto.ResponseDTO;
-import com.lliscano.microserviciocommand.dto.UserDTO;
+import com.lliscano.commons.dto.UserDTO;
 import com.lliscano.microserviciocommand.service.UsersService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,15 @@
 version: '3.8'
 services:
+  consumer:
+    build: microservicio-consumer/
+    depends_on:
+      - db-query
+      - kafka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-query:5432/postgres
+      KAFKA_HOST: kafka
   app-command:
     build: microservicio-command/
-    container_name: app_command
     ports:
       - '8080:8080'
     depends_on:
@@ -10,9 +17,9 @@ services:
       - kafka
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db-command:5432/postgres
+      KAFKA_HOST: kafka
   app-query:
     build: microservicio-query/
-    container_name: app_query
     ports:
       - '8081:8080'
     environment:

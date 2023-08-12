@@ -7,17 +7,22 @@ spring:
         format_sql: true
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5433/postgres
     username: postgres
     password: postgres
   kafka:
-    producer:
+    consumer:
       bootstrap-servers: ${KAFKA_HOST:localhost}:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.lliscano.commons.dto
 logging:
   level:
     ROOT: INFO

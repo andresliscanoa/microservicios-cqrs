@@ -1,9 +1,8 @@
 package com.lliscano.microserviciocommand.service;
 
 import com.lliscano.commons.dto.KafkaEventDTO;
-import com.lliscano.commons.dto.ResponseDTO;;
-import com.lliscano.microserviciocommand.dto.UserDTO;
-import com.lliscano.microserviciocommand.entity.Users;
+import com.lliscano.commons.dto.ResponseDTO;
+import com.lliscano.commons.dto.UserDTO;
 import com.lliscano.microserviciocommand.mapper.UserMapper;
 import com.lliscano.microserviciocommand.repository.UsersRepository;
 import lombok.AllArgsConstructor;
@@ -22,11 +21,11 @@ public class UsersService {
     private final KafkaTemplate<String, Object> kafkaTemplate;
 
     public ResponseDTO<UserDTO> saveUser(UserDTO userDTO) {
-        Users user = this.repository.save(this.mapper.toEntity(userDTO));
+        this.repository.save(this.mapper.toEntity(userDTO));
         this.kafkaTemplate.send(
                 TOPIC, KafkaEventDTO.builder()
                         .event("POST")
-                        .data(user)
+                        .data(userDTO)
                         .build()
         );
         return ResponseDTO.<UserDTO>builder()

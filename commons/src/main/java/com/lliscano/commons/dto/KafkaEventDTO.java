@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class KafkaEventDTO<T> {
+public class KafkaEventDTO {
     private String event;
-    private T data;
+    private UserDTO data;
 }

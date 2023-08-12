@@ -1,9 +1,8 @@
-package com.lliscano.microservicioquery.mapper;
-
+package com.lliscano.microservicioconsumer.mapper;
 
 
 import com.lliscano.commons.dto.UserDTO;
-import com.lliscano.microservicioquery.entity.Users;
+import com.lliscano.microservicioconsumer.entity.Users;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,8 +1,8 @@
 package com.lliscano.microservicioquery.service;
 
 import com.lliscano.commons.dto.ResponseDTO;
+import com.lliscano.commons.dto.UserDTO;
 import com.lliscano.commons.exception.RecordNotFoundException;
-import com.lliscano.microservicioquery.dto.UserDTO;
 import com.lliscano.microservicioquery.mapper.UserMapper;
 import com.lliscano.microservicioquery.repository.UsersRepository;
 import lombok.AllArgsConstructor;

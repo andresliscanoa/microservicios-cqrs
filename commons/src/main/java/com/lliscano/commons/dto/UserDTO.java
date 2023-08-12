@@ -1,4 +1,4 @@
-package com.lliscano.microservicioquery.dto;
+package com.lliscano.commons.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
