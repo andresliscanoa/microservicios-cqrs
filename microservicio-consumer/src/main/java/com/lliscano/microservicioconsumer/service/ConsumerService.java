@@ -16,6 +16,11 @@ public class ConsumerService {
     private final UserMapper userMapper;
     public void syncUsers(KafkaEventDTO kafkaEventDTO) {
         log.info("KafkaEventDTO: {}",kafkaEventDTO);
-        this.usersRepository.save(this.userMapper.toEntity(kafkaEventDTO.getData()));
+        if(kafkaEventDTO.getEvent().equalsIgnoreCase("POST"))
+            this.usersRepository.save(this.userMapper.toEntity(kafkaEventDTO.getData()));
+        if(kafkaEventDTO.getEvent().equalsIgnoreCase("PUT"))
+            this.usersRepository.save(this.userMapper.toEntity(kafkaEventDTO.getData()));
+        if(kafkaEventDTO.getEvent().equalsIgnoreCase("DELETE"))
+            this.usersRepository.deleteById(kafkaEventDTO.getData().getId());
     }
 }

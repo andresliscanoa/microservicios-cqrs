@@ -9,10 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Validated
@@ -27,5 +24,19 @@ public class UsersController {
             @RequestBody @Valid UserDTO userDTO
     ) {
         return new ResponseEntity<>(this.service.saveUser(userDTO),HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<ResponseDTO<UserDTO>> updateUser(
+            @RequestBody @Valid UserDTO userDTO
+    ) {
+        return new ResponseEntity<>(this.service.updateUser(userDTO),HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<ResponseDTO<String>> deleteUser(
+            @PathVariable(name = "id") Long id
+    ) {
+        return new ResponseEntity<>(this.service.deleteUser(id),HttpStatus.OK);
     }
 }
