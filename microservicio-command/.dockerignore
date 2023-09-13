@@ -1,0 +1,7 @@
+src/
+target/
+Dockerfile
+.*ignore
+*.iml
+*.xml
+!target/app.jar

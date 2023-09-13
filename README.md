@@ -30,5 +30,11 @@ mvn clean install
 docker-compose -f docker-compose.yaml -p microservicios-cqrs up -d --build
 ``` 
 
+## Down
+
+```shell
+docker-compose -f docker-compose.yaml -p microservicios-cqrs down -d --remove-orphans -rmi local --volumes
+``` 
+
 ## Arquitectura
-![CQRS](./diagrama.png "CQRS")
+![CQRS](./microservicios-cqrs.gif "CQRS")
